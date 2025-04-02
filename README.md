@@ -13,7 +13,7 @@ Ensure you have the following installed:
 
    ```bash
    git clone https://github.com/Saran3072/catalog-aggregator.git
-   cd catalog_aggregator
+   cd catalog-aggregator
    ```
 
 2. **Create a Virtual Environment**
