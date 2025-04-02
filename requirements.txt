@@ -1,0 +1,12 @@
+typing
+requests
+langchain
+langchain-groq
+langchain-community
+langchain-core
+playwright
+asyncio
+pymongo
+aiohttp
+tiktoken
+transformers

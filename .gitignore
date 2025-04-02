@@ -1,0 +1,11 @@
+# Ignore virtual environment
+**/venv*/
+
+# Ignore pypackages
+__pypackages__/
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+*.py[cod]
+*$py.class
+**/*.bak
