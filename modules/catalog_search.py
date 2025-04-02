@@ -112,7 +112,6 @@ class CatalogPipeline:
             return {"category": category, "error": str(e)}
 
 
-# === Run Script ===
 if __name__ == "__main__":
     pipeline = CatalogPipeline()
 
