@@ -1,5 +1,6 @@
 from playwright.sync_api import sync_playwright
 from langchain.tools import tool
+from bs4 import BeautifulSoup, Comment
 
 @tool
 def get_website_html(url: str) -> str:
@@ -14,7 +15,22 @@ def get_website_html(url: str) -> str:
             page.wait_for_timeout(3000)
 
             html = page.content()
+            soup = BeautifulSoup(html, 'html.parser')
+
+            # Remove script and style elements
+            for tag in soup(["script", "style"]):
+                tag.decompose()
+
+            # Remove comments
+            for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
+                comment.extract()
+
+            # Optionally remove head, meta, nav, footer etc.
+            for tag in soup(["head", "meta", "nav", "footer", "noscript", "iframe"]):
+                tag.decompose()
+
+            content = soup.get_text(separator=" ", strip=True)
             browser.close()
-            return html[:5000]  # Limit for token budget
+            return content
     except Exception as e:
         return f"Error fetching {url}: {e}"
