@@ -6,8 +6,8 @@ from langchain_groq import ChatGroq
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.prompts import ChatPromptTemplate
-from utils.tools import get_website_html
 
+from utils.tools import get_website_html
 from utils.prompts import CATALOG_AGENT_PROMPT
 
 logging.basicConfig(
